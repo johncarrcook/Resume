@@ -28,15 +28,11 @@ h1{
     margin-bottom: 0; 
 }
 
-.header-row{
+.contact-info{
     text-align: center;
 }
 
-.contact{
-    text-align: center;
-    padding: 2px;
-    font-size: .75em;
-}
+
 
 /* HEADER END */
 
@@ -51,6 +47,7 @@ h2 {
     text-transform: uppercase;
     margin: 0;
     border-top-style: solid;
+    border-color: #000;
     border-top-width: 2px;
 }
 #summary h2 { /* top title shouldn't have a border */
@@ -79,21 +76,51 @@ ul{
     margin: 0;
 }
 
+.side-box {
+    background-color: #606e52;
+    color: #fff;
+}
+
+
+/* BODY END */
+
 @media (min-width: 636px) {
-    .header-info, .header-info-medium, #address {
-        display: none;
+    .side-box{
+        float: right;
+        width: 33.33%;
+        padding: 3px;
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+    .side-box h2{
+        border: none;
+    }
+    .side-box li {
+        margin: 5px 0px 5px 0px;
+    }
+    .main-body-box{
+        width: 64%;
+    }
+    #summary{
+        width: 100%;
     }
 }
 
 @media (min-width: 481px) and (max-width: 635px){
-    .header-info-large, .header-info{
-        display: none;
+    .side-box{
+        border-left-style: solid;
+        border-right-style: solid;
+        border:#000;
+        border-width: 2px;
+        padding-bottom: 5px;
+    }
+    #skills-list{
+        column-count: 2;
     }
 }
 
 @media (max-width: 480px){
-    .header-info-large, .header-info-medium{
-        display: none;
+    .side-box{
     }
 }
 
