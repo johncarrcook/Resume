@@ -13,6 +13,8 @@ body {
 
 header{
     background-color: darkseagreen;
+    position: sticky;
+    top: -15px; 
 }
 a:link{
     text-decoration: none;
