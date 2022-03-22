@@ -34,8 +34,6 @@ h1{
     text-align: center;
 }
 
-
-
 /* HEADER END */
 
 /* BODY START */
@@ -86,7 +84,26 @@ ul{
 
 /* BODY END */
 
-@media (min-width: 636px) {
+@media (min-width: 730px) {
+    #address{
+        text-align: right;
+        float: left;
+        width: 45%;
+    }
+    #phone-number{
+        text-align: center;
+        width: 150px;
+        float: left;
+    }
+    #email-address{
+        text-align: left;
+        float: left;
+    }
+    .header-row{
+        height: 20px;
+    }
+
+
     .side-box{
         float: right;
         width: 33.33%;
