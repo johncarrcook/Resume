@@ -110,6 +110,8 @@ ul{
         padding: 3px;
         font-size: 1.2em;
         margin-top: 10px;
+        position: sticky;
+        top: 90px;
     }
     .side-box h2{
         border: none;
