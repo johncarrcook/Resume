@@ -112,6 +112,7 @@ ul{
         margin-top: 10px;
         position: sticky;
         top: 90px;
+        height: 80vh;
     }
     .side-box h2{
         border: none;
