@@ -34,6 +34,12 @@ h1{
     text-align: center;
 }
 
+#view-counter{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
 /* HEADER END */
 
 /* BODY START */
@@ -112,6 +118,7 @@ ul{
         margin-top: 10px;
         position: sticky;
         top: 90px;
+        height: 80vh;
     }
     .side-box h2{
         border: none;
@@ -127,7 +134,7 @@ ul{
     }
 }
 
-@media (min-width: 481px) and (max-width: 635px){
+@media (min-width: 481px) and (max-width: 729px){
     .side-box{
         border-left-style: solid;
         border-right-style: solid;
