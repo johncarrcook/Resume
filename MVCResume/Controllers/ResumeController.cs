@@ -6,6 +6,7 @@ namespace MVCResume.Controllers
     {
         public IActionResult Index()
         {
+            
             return View();
         }
     }
