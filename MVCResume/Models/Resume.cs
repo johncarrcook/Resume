@@ -8,6 +8,6 @@
         public string? Title { get; set; }
         public string? InstName { get; set; }
         public string? Location { get; set; }
-        public List<Experience>? Experiences { get; set; } = new List<Experience>();
+        public virtual List<Experience> Experiences { get; set; } = new List<Experience>();
     }
 }
