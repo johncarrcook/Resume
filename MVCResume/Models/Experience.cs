@@ -2,7 +2,7 @@
 {
     public class Experience
     {
-        public int Id { get; set; }
+        public int Experience_Id { get; set; }
         public string? Responsibility { get; set; }
     }
 }
