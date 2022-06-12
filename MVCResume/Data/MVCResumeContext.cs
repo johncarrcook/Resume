@@ -16,5 +16,12 @@ namespace MVCResume.Data
 
         public DbSet<MVCResume.Models.Resume>? Resume { get; set; }
         public DbSet<MVCResume.Models.Experience>? Experience { get; set; }
+        public DbSet<MVCResume.Models.Achievement>? Achievement { get; set; }
+        public DbSet<MVCResume.Models.Activity>? Activity { get; set; }
+        public DbSet<MVCResume.Models.Education>? Education { get; set; }
+        public DbSet<MVCResume.Models.Project>? Project { get; set; }
+        public DbSet<MVCResume.Models.Skill>? Skill { get; set; }
+        public DbSet<MVCResume.Models.Job>? Job { get; set; }
+
     }
 }

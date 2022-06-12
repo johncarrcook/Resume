@@ -10,87 +10,87 @@ using MVCResume.Models;
 
 namespace MVCResume.Controllers
 {
-    public class ResumesController : Controller
+    public class JobsController : Controller
     {
         private readonly MVCResumeContext _context;
 
-        public ResumesController(MVCResumeContext context)
+        public JobsController(MVCResumeContext context)
         {
             _context = context;
         }
 
-        // GET: Resumes
+        // GET: Jobs
         public async Task<IActionResult> Index()
         {
-              return _context.Resume != null ? 
-                          View(await _context.Resume.ToListAsync()) :
-                          Problem("Entity set 'MVCResumeContext.Resume'  is null.");
+              return _context.Job != null ? 
+                          View(await _context.Job.ToListAsync()) :
+                          Problem("Entity set 'MVCResumeContext.Job'  is null.");
         }
 
-        // GET: Resumes/Details/5
+        // GET: Jobs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Resume == null)
+            if (id == null || _context.Job == null)
             {
                 return NotFound();
             }
 
-            var resume = await _context.Resume
+            var job = await _context.Job
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (resume == null)
+            if (job == null)
             {
                 return NotFound();
             }
 
-            return View(resume);
+            return View(job);
         }
 
-        // GET: Resumes/Create
+        // GET: Jobs/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Resumes/Create
+        // POST: Jobs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,StartDate,EndDate,Title,InstName,Location")] Resume resume)
+        public async Task<IActionResult> Create([Bind("Id,StartDate,EndDate,Title,CompanyName,CompanyLocation")] Job job)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(resume);
+                _context.Add(job);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(resume);
+            return View(job);
         }
 
-        // GET: Resumes/Edit/5
+        // GET: Jobs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Resume == null)
+            if (id == null || _context.Job == null)
             {
                 return NotFound();
             }
 
-            var resume = await _context.Resume.FindAsync(id);
-            if (resume == null)
+            var job = await _context.Job.FindAsync(id);
+            if (job == null)
             {
                 return NotFound();
             }
-            return View(resume);
+            return View(job);
         }
 
-        // POST: Resumes/Edit/5
+        // POST: Jobs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,StartDate,EndDate,Title,InstName,Location")] Resume resume)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,StartDate,EndDate,Title,CompanyName,CompanyLocation")] Job job)
         {
-            if (id != resume.Id)
+            if (id != job.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace MVCResume.Controllers
             {
                 try
                 {
-                    _context.Update(resume);
+                    _context.Update(job);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ResumeExists(resume.Id))
+                    if (!JobExists(job.Id))
                     {
                         return NotFound();
                     }
@@ -115,49 +115,49 @@ namespace MVCResume.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(resume);
+            return View(job);
         }
 
-        // GET: Resumes/Delete/5
+        // GET: Jobs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Resume == null)
+            if (id == null || _context.Job == null)
             {
                 return NotFound();
             }
 
-            var resume = await _context.Resume
+            var job = await _context.Job
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (resume == null)
+            if (job == null)
             {
                 return NotFound();
             }
 
-            return View(resume);
+            return View(job);
         }
 
-        // POST: Resumes/Delete/5
+        // POST: Jobs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Resume == null)
+            if (_context.Job == null)
             {
-                return Problem("Entity set 'MVCResumeContext.Resume'  is null.");
+                return Problem("Entity set 'MVCResumeContext.Job'  is null.");
             }
-            var resume = await _context.Resume.FindAsync(id);
-            if (resume != null)
+            var job = await _context.Job.FindAsync(id);
+            if (job != null)
             {
-                _context.Resume.Remove(resume);
+                _context.Job.Remove(job);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ResumeExists(int id)
+        private bool JobExists(int id)
         {
-          return (_context.Resume?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Job?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

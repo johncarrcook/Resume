@@ -1,6 +1,6 @@
 ﻿namespace MVCResume.Models
 {
-    public class Experience
+    public class Achievement
     {
         public int Id { get; set; }
         public string? Entry { get; set; }
