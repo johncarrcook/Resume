@@ -1,13 +1,16 @@
-﻿namespace MVCResume.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MVCResume.Models
 {
     public class Resume
     {
         public int Id { get; set; }
-        public string? StartDate { get; set; }
-        public string? EndDate { get; set; }
-        public string? Title { get; set; }
-        public string? InstName { get; set; }
-        public string? Location { get; set; }
-        public List<Experience>? Experiences { get; set; } = new List<Experience>();
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
+        public List<Job> Jobs { get; set; } = new List<Job>();
+        public List<Education> Educations { get; set; } = new List<Education>();
+        public List<Skill> Skills { get; set; } = new List<Skill>();
+        public List<Project> Projects { get; set; } = new List<Project>();
+        public List<Activity> Activities { get; set; } = new List<Activity>();
     }
 }

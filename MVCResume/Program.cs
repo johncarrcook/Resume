@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MVCResume.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MVCResumeContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MVCResumeContext") ?? throw new InvalidOperationException("Connection string 'MVCResumeContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
