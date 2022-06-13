@@ -22,11 +22,50 @@ namespace MVCResume.Controllers
                 "to create high quality, innovative work. ";
 
             var job = _context.Job.ToList();
-            ViewBag.JobCount = job.Count();
-            ViewBag.JobStartDate = _context.Job
-                .Select(x => x.StartDate).ToList();
-            ViewBag.JobEndDate = _context.Job
-                .Select(x => x.EndDate).ToList();
+            ViewBag.JobCount = job.Count;
+
+            // Create the date string
+            List<string?> jobStartDate = _context.Job
+                .Select(x => x.StartDate)
+                .ToList();
+            List<string?> jobEndDate = _context.Job
+                .Select(x => x.EndDate)
+                .ToList();
+            ViewBag.JobStartAndEnd = new List<string>();
+            for(int i = 0; i < job.Count; i++)
+            {
+                ViewBag.JobStartAndEnd.Add(String.Concat(jobStartDate[i], "-", jobEndDate[i]));
+            }
+
+            ViewBag.JobTitle = _context.Job
+                .Select(x => x.Title)
+                .ToList();
+
+            // Create Company and Location string
+            List<string?> jobCompanyName = _context.Job
+                .Select(x => x.CompanyName)
+                .ToList();
+            List<string?> jobLocation = _context.Job
+                .Select(x => x.CompanyLocation)
+                .ToList();
+            ViewBag.JobCompanyNameAndLocation = new List<string>();
+            for(int i = 0; i < job.Count; i++)
+            {
+                if (jobCompanyName[i] == null)
+                {
+                    ViewBag.JobCompanyNameAndLocation.Add(String.Empty);
+                }
+                else if (jobCompanyName[i][jobCompanyName[i].Length - 1] == '.')
+                {
+                    ViewBag.JobCompanyNameAndLocation.Add(String.Concat(jobCompanyName[i], " ", jobLocation[i]));
+                }
+                else
+                {
+                    ViewBag.JobCompanyNameAndLocation.Add(String.Concat(jobCompanyName[i], " - ", jobLocation[i]));
+                }
+                
+            }
+
 
 
             return View();
